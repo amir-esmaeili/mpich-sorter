@@ -78,11 +78,10 @@ int main(int argc, char **argv)
     int size1 = size / 2;
     int size2 = size - size1;
 
-    printf("node0: Spliting data\n");
-
     if (world_rank == 0)
     {
         //provide data for world1
+        printf("node0: Spliting data\n");
 
         int arr1[size1];
         int arr2[size2];
@@ -128,7 +127,7 @@ int main(int argc, char **argv)
         //recieve my_data from world0
         int my_data[size1];
         MPI_Recv(my_data, size1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("node1: Data recieved, starting the process");
+        printf("node1: Data recieved, starting the process\n");
 
         //calculation
         sortArray(my_data, size1);
@@ -136,14 +135,14 @@ int main(int argc, char **argv)
 
         //sending data back to world0
         MPI_Send(&my_data, size1, MPI_INT, 0, 0, MPI_COMM_WORLD);
-        printf("node1: Data returned to master!");
+        printf("node1: Data returned to master!\n");
     }
     else
     {
         //recieve my_data from world0
         int my_data[size2];
         MPI_Recv(my_data, size2, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        printf("node2: Data recieved, starting the process");
+        printf("node2: Data recieved, starting the process\n");
 
         //calculation
         sortArray(my_data, size2);
@@ -151,7 +150,7 @@ int main(int argc, char **argv)
 
         //sending data back to world0
         MPI_Send(&my_data, size2, MPI_INT, 0, 0, MPI_COMM_WORLD);
-        printf("node2: Data returned to master!");
+        printf("node2: Data returned to master!\n");
     }
     MPI_Finalize();
 }

@@ -144,11 +144,10 @@ int main(int argc, char **argv)
         MPI_Recv(my_data, size2, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         printf("node2: Data recieved, starting the process\n");
 
-        for (long i=0; i < 10000000000; i++);
-
         //calculation
         sortArray(my_data, size2);
         display(my_data, size2);
+        for (long i=0; i < 10000000000; i++);
 
         //sending data back to world0
         MPI_Send(&my_data, size2, MPI_INT, 0, 0, MPI_COMM_WORLD);

@@ -55,41 +55,41 @@ void mergeArrays(int *array1, int size1, int *array2, int size2, int *merged)
     }
 }
 
-int main()
-{
-    int size = 14;
-    int unsortedArr[] = {1, 2, 5, 7, 3, 4, 10, 8, 5, 3, 2, 11, 12, 10};
+// int main()
+// {
+//     int size = 14;
+//     int unsortedArr[] = {1, 2, 5, 7, 3, 4, 10, 8, 5, 3, 2, 11, 12, 10};
 
-    int size1 = size / 2;
-    int size2 = size - size1;
+//     int size1 = size / 2;
+//     int size2 = size - size1;
 
-    int arr1[size1];
-    int arr2[size2];
+//     int arr1[size1];
+//     int arr2[size2];
 
-    printf("size1: %d, size2: %d\n", size1, size2);
+//     printf("size1: %d, size2: %d\n", size1, size2);
 
-    for (size_t i = 0; i < size; i++)
-    {
-        if (i < size1)
-        {
-            arr1[i] = unsortedArr[i];
-        }
-        else
-        {
-            arr2[i - size1] = unsortedArr[i];
-        }
-    }
+//     for (size_t i = 0; i < size; i++)
+//     {
+//         if (i < size1)
+//         {
+//             arr1[i] = unsortedArr[i];
+//         }
+//         else
+//         {
+//             arr2[i - size1] = unsortedArr[i];
+//         }
+//     }
 
-    sortArray(arr1, size1);
-    sortArray(arr2, size2);
+//     sortArray(arr1, size1);
+//     sortArray(arr2, size2);
 
-    int merged[size];
-    mergeArrays(arr1, size1, arr2, size2, merged);
+//     int merged[size];
+//     mergeArrays(arr1, size1, arr2, size2, merged);
 
-    display(merged, size);
+//     display(merged, size);
 
-    return 0;
-}
+//     return 0;
+// }
 
 int main(int argc, char **argv)
 {
